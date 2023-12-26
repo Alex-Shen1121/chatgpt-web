@@ -15,16 +15,16 @@ export function Auth() {
                 学习AI开发、掌握AI部署、运用AI提效
             </div>
             <img
-                src="/qrcode.png"
+                src="/qrcode.jpg"
                 style={{width: 250}}
             />
             <div className={styles["auth-tips"]}>
-                扫码关注公众号【小傅哥】，
+                扫码关注公众号【Alex 的生活空间】，
                 <a
                     href="/qrcode.jpg"
                     target="_blank"
                 >
-                    回复【403】获取访问密码
+                    回复【任意文字】获取访问密码
                 </a>
             </div>
 

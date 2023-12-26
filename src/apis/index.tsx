@@ -3,7 +3,7 @@ import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
-const apiHostUrl = "https://api.gaga.plus";
+const apiHostUrl = "http://localhost:8090";
 
 /**
  * Header 信息
@@ -35,7 +35,7 @@ export const completions = (data: {
     messages: { content: string; role: MessageRole }[],
     model: GptVersion
 }) => {
-    return fetch(`${apiHostUrl}/api/v1/chatgpt/chat/completions`, {
+    return fetch(`${apiHostUrl}/api/v1/chat/completions`, {
         method: 'post',
         headers: getHeaders(),
         body: JSON.stringify(data)
