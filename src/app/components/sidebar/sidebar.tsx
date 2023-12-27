@@ -69,7 +69,7 @@ export function SideBar() {
 
             <div className={styles["sidebar-git"]}
                  onClick={() => {
-                     window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html');
+                     // window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html');
                  }}>
                 <GitIcon/>
             </div>

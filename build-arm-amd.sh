@@ -3,4 +3,4 @@
 # docker buildx use mybuilder
 # docker buildx inspect --bootstrap
 
-docker buildx build --load --platform linux/amd64,linux/arm64 -t fuzhengwei/chatgpt-web-app:1.7 .
+docker buildx build --platform linux/amd64,linux/arm64 -t shenchenyu/chatgpt-web-app:1.0 . --push

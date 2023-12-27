@@ -3,7 +3,7 @@ import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
-const apiHostUrl = "http://localhost:8090";
+const apiHostUrl = "https://chatgpt-data.codingshen.top";
 
 /**
  * Header 信息
@@ -24,7 +24,7 @@ function getHeaders() {
  */
 export const getRoleList = () => {
     // 从本地 json 文件获取
-    return fetch(`/prompts.json`).then((res) => res.json());
+    return fetch(`/prompts.json`).then((res ) => res.json());
 };
 
 /**

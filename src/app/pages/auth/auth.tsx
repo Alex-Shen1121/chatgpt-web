@@ -45,8 +45,6 @@ export function Auth() {
 
             <div className={styles["auth-actions"]}>
                 <Button type="primary" onClick={() => access.login()}>确认登录👣</Button>
-                <Button type="text"
-                        onClick={() => window.open('https://bugstack.cn/md/project/chatgpt/chatgpt.html')}>此项目地址</Button>
             </div>
             <hr></hr>
             <span>

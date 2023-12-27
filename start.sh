@@ -1,1 +1,1 @@
-docker run -d --name chatgpt-web -p 3000:3000 fuzhengwei/chatgpt-web:1.0
+docker run -d --name chatgpt-web -p 3002:3002 shenchenyu/chatgpt-web-app:1.0
