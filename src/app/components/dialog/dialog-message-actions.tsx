@@ -74,7 +74,7 @@ export default function DialogMessagesActions(props: {
     const {config} = props
     return <div className={styles['chat-input-actions']}>
         <Select
-            value={config?.gptVersion??GptVersion.CHATGLM_Turbo}
+            value={config?.gptVersion??GptVersion.GPT_3_5_TURBO}
             style={{ width: 160 }}
             options={[
                 // { value: GptVersion.CHATGLM_LITE, label: 'chatglm_lite' },

@@ -3,7 +3,7 @@ import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
 
 // 构建前把localhost修改为你的公网IP或者域名地址
-const apiHostUrl = "https://chatgpt-data.codingshen.top";
+const apiHostUrl = "http://localhost:8099";
 
 /**
  * Header 信息
