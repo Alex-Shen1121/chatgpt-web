@@ -122,3 +122,9 @@
 .QRCode {
   transform: scale(4); /* 放大QRCode的尺寸 */
 }
+
+.payment-selector-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}

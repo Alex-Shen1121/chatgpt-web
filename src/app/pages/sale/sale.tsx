@@ -5,11 +5,17 @@ import {useEffect, useState} from "react";
 import {SaleProduct, SaleProductEnum} from "@/types/sale_product";
 import {useAccessStore} from "@/app/store/access";
 import {useNavigate} from "react-router-dom";
+import PaymentSelector from "@/app/components/dialog/PaymentSelector";
+import {PayMethod} from "@/app/constants";
 
 export function Sale() {
     const [products, setProducts] = useState<SaleProduct[]>([])
     const [showModal, setShowModal] = useState(false);
     const [payUrl, setPayUrl] = useState('')
+    // 新增状态用于存储支付方式
+    // const [paymentMethod, setPaymentMethod] = useState('AlipaySandbox');
+    const [paymentMethod, setPaymentMethod] = useState<PayMethod>(PayMethod.AlipaySandbox);
+
 
     // 编程式路由跳转
     const navigate = useNavigate();
@@ -34,7 +40,7 @@ export function Sale() {
     }
 
     const payOrder = async (productId: number) => {
-        const res = await createPayOrder(productId);
+        const res = await createPayOrder({productId: productId, payMethod: paymentMethod});
         const {data, code} = await res.json();
         // 登录拦截
         if (code === SaleProductEnum.NeedLogin) {
@@ -54,6 +60,12 @@ export function Sale() {
 
     return (
         <div className={styles["sale"]}>
+            {/* 在这里添加 PaymentSelector 组件 */}
+            <div className={styles["payment-selector-container"]}>
+                <PaymentSelector onPaymentMethodChange={setPaymentMethod}/>
+            </div>
+
+
             {products?.map((product) => (
                 <div key={product.productId} className={styles["product"]}>
                     <div className={styles["product-name"]}>
@@ -76,7 +88,7 @@ export function Sale() {
             {showModal && (
                 <div className={styles["product-pay"]}>
                     <div className={styles["product-pay-weixin"]}>
-                        微信扫码支付
+                        支付宝沙盒 扫码支付
                     </div>
                     <div className={styles["product-pay-url"]}>
                         <QRCode value={payUrl}/>
@@ -86,9 +98,9 @@ export function Sale() {
                     </div>
                     <div className={styles["product-pay-prompt"]}>
                         <span>支付成功，自动充值。可直接去<span style={{color: "rgb(0,0,0)", fontWeight: "bold"}}
-                                                          onClick={() => {
-                                                              navigate(`/chat`);
-                                                          }}>【对话】</span>使用</span>
+                                                              onClick={() => {
+                                                                  navigate(`/chat`);
+                                                              }}>【对话】</span>使用</span>
                     </div>
                 </div>
             )}

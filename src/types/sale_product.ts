@@ -1,3 +1,9 @@
+import {PayMethod} from "@/app/constants";
+
+export interface PaySessionConfig {
+    PayMethod: PayMethod;
+}
+
 export interface SaleProduct {
     productId: number,
     productName: string,

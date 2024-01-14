@@ -24,7 +24,7 @@ function getHeaders() {
  */
 export const getRoleList = () => {
     // 从本地 json 文件获取
-    return fetch(`/prompts.json`).then((res ) => res.json());
+    return fetch(`/prompts.json`).then((res) => res.json());
 };
 
 /**
@@ -70,15 +70,24 @@ export const queryProductList = () => {
 /**
  * 用户商品下单，获得支付地址 url
  */
-export const createPayOrder = (productId: number) => {
+export const createPayOrder = (data: {
+    productId: number,
+    payMethod: string
+}) => {
+    // 将数据转换为 URL 编码的字符串
+    const formData = new URLSearchParams();
+    formData.append('productId', data.productId.toString());
+    formData.append('payMethod', data.payMethod);
+
     return fetch(`${apiHostUrl}/api/v1/sale/create_pay_order`, {
         method: "post",
         headers: {
             ...getHeaders(),
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
         },
-        body: `productId=${productId}`
+        body: formData
     });
 }
+
 
 
